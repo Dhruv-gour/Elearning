@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Chaturvedi Classes</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Chaturvedi Classes" name="keywords">
+    <meta content="Chaturvedi Classes" name="description">
+
+    <!-- Favicon -->
+    <link href="img/logo.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Enhanced Card Styles */
+        .card {
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Enhanced Button Styles */
+        .btn {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Enhanced Navigation */
+        .navbar {
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255,255,255,0.95) !important;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-item .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-item .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Enhanced Section Animations */
+        .section-title {
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .team-member {
+            animation: scaleIn 0.6s ease;
+        }
+
+        /* Enhanced Footer Links */
+        .footer a {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .footer a:hover {
+            color: var(--primary) !important;
+            transform: translateX(5px);
+        }
+
+        /* Enhanced Social Media Icons */
+        .btn-outline-light {
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-light:hover {
+            transform: translateY(-3px) rotate(8deg);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Enhanced Form Inputs */
+        .form-control {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .form-control:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        /* Enhanced Back to Top Button */
+        .back-to-top {
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Enhanced Header Section */
+        .header-content {
+            animation: slideInLeft 0.8s ease;
+        }
+
+        .header-image {
+            animation: slideInRight 0.8s ease;
+        }
+
+        /* Enhanced Facilities Section */
+        .facility-item {
+            transition: all 0.3s ease;
+        }
+
+        .facility-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Enhanced Blog Cards */
+        .blog-card {
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Scroll Animation Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsiveness Fixes */
+        @media (max-width: 991px) {
+            .navbar-nav {
+                padding: 15px 0;
+                background: #ffffff;
+            }
+            
+            .navbar-nav .nav-item {
+                padding: 10px 0;
+            }
+            
+            .navbar-nav .dropdown-menu {
+                background: #ffffff;
+                border: none;
+                padding: 0;
+            }
+            
+            .navbar-nav .dropdown-item {
+                padding: 10px 20px;
+            }
+            
+            .navbar-toggler {
+                padding: 0.5rem;
+                border: none;
+                background: #ff8c00;
+            }
+            
+            .navbar-toggler:focus {
+                outline: none;
+            }
+            
+            .navbar-toggler-icon {
+                width: 1.5em;
+                height: 1.5em;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .navbar-brand {
+                font-size: 30px !important;
+            }
+            
+            .navbar-nav {
+                text-align: center;
+            }
+            
+            .navbar-nav .nav-item {
+                display: block;
+                margin: 5px 0;
+            }
+            
+            .navbar-nav .dropdown-menu {
+                text-align: center;
+            }
+            
+            .navbar-nav .dropdown-item {
+                padding: 8px 15px;
+            }
+        }
+
+        /* Custom Colors */
+        :root {
+            --primary: #ff8c00;
+            --secondary: #dc3545;
+            --light: #ffffff;
+            --white: #e0c8a1;
+            --gray: #D3D3D3;
+            --text-danger: #990000;
+        }
+
+        /* Update text colors */
+        .txt-gray {
+            color: var(--gray) !important;
+        }
+
+        .txt-light {
+            color: var(--white) !important;
+        }
+
+        .text-info {
+            color: var(--text-danger) !important;
+        }
+
+        .text-primary {
+            color: var(--text-danger) !important;
+        }
+
+        .text-secondary {
+            color: var(--text-danger) !important;
+        }
+
+        .text-warning {
+            color: var(--primary) !important;
+        }
+
+        /* Update link colors */
+        a.text-primary:hover {
+            color: var(--text-danger) !important;
+            opacity: 0.8;
+        }
+
+        a.text-secondary:hover {
+            color: var(--text-danger) !important;
+            opacity: 0.8;
+        }
+
+        /* Update border colors */
+        .border-primary {
+            border-color: var(--primary) !important;
+        }
+
+        .border-secondary {
+            border-color: var(--text-danger) !important;
+        }
+
+        /* Update outline button colors */
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: var(--light);
+        }
+
+        /* Update footer link colors */
+        .footer a.text-white:hover {
+            color: var(--primary) !important;
+        }
+
+        /* Update copyright link colors */
+        .text-primary.font-weight-bold {
+            color: var(--text-danger) !important;
+        }
+
+        /* Update section title colors */
+        .section-title span {
+            color: var(--text-danger);
+        }
+
+        /* Update icon colors */
+        .fa-check.text-success {
+            color: var(--primary) !important;
+        }
+
+        /* Update social media icons */
+        .btn-outline-primary i {
+            color: var(--primary);
+        }
+
+        /* Update footer border */
+        .container-fluid.border-top {
+            border-color: rgba(255, 140, 0, 0.2) !important;
+        }
+
+        .bg-primary {
+            background-color: var(--primary) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #e67e00;
+            border-color: #e67e00;
+        }
+
+        .text-danger {
+            color: var(--text-danger) !important;
+        }
+
+        .bg-danger {
+            background: linear-gradient(45deg, #990000, #dc3545) !important;
+        }
+
+        .btn-danger {
+            background: linear-gradient(45deg, #990000, #dc3545);
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            background: linear-gradient(45deg, #dc3545, #990000);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* General Styles */
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .navbar {
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-family: 'Handlee', cursive;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        .section-title::before {
+            position: absolute;
+            content: "";
+            width: 45px;
+            height: 2px;
+            top: 50%;
+            left: -55px;
+            margin-top: -1px;
+            background: var(--primary);
+        }
+
+        .section-title::after {
+            position: absolute;
+            content: "";
+            width: 45px;
+            height: 2px;
+            top: 50%;
+            right: -55px;
+            margin-top: -1px;
+            background: var(--primary);
+        }
+
+        .section-title span {
+            position: relative;
+            background: var(--light);
+            padding: 0 15px;
+            display: inline-block;
+        }
+
+        /* Additional Color Updates */
+        .bg-secondary {
+            background-color: var(--primary) !important;
+        }
+
+        .btn-secondary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #e67e00;
+            border-color: #e67e00;
+        }
+
+        .card-header.bg-secondary {
+            background-color: var(--primary) !important;
+        }
+
+        .back-to-top {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .back-to-top:hover {
+            background-color: #e67e00;
+            border-color: #e67e00;
+        }
+
+        /* Teacher animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes rotateIn {
+            from {
+                opacity: 0;
+                transform: rotate(-180deg) scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(0) scale(1);
+            }
+        }
+
+        .team {
+            opacity: 0;
+            animation: scaleIn 0.6s ease forwards;
+        }
+
+        .team:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .team:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .team .position-relative {
+            transition: all 0.5s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .team:hover .position-relative {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .team img {
+            transition: all 0.5s ease;
+        }
+
+        .team:hover img {
+            transform: scale(1.1);
+        }
+
+        .team-social {
+            background: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.5s ease;
+        }
+
+        .team:hover .team-social {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .team-social a {
+            opacity: 0;
+            transform: rotate(-180deg) scale(0);
+            transition: all 0.5s ease;
+        }
+
+        .team:hover .team-social a {
+            opacity: 1;
+            transform: rotate(0) scale(1);
+        }
+
+        .team:hover .team-social a:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .team:hover .team-social a:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .team:hover .team-social a:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .team h4 {
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+        }
+
+        .team h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #ff8c00;
+            transition: all 0.5s ease;
+            transform: translateX(-50%);
+        }
+
+        .team:hover h4::after {
+            width: 50px;
+        }
+
+        .team i {
+            color: #666;
+            transition: all 0.5s ease;
+        }
+
+        .team:hover i {
+            color: #ff8c00;
+        }
+
+        /* Footer Styles */
+        .social-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .footer-contact h5 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .footer-contact p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+
+        #contactus h2 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        #contactus .form-control {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            height: 50px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        #contactus .form-control::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        #contactus .btn-danger {
+            height: 50px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-light position-relative shadow">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
+            <a href="" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
+                <img src="img/logo.png" style="height: 50px;">
+                <span class="text-danger">Chaturvedi Classes</span>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav font-weight-bold mx-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="#about" class="nav-item nav-link">About</a>
+                    <a href="#classes" class="nav-item nav-link">Classes</a>
+                    <a href="#team" class="nav-item nav-link">Teachers</a>
+                    <a href="#blog" class="nav-item nav-link">Resources</a>
+                    <a href="#contactus" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="auth.html" class="btn btn-danger px-4">Join Classes</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-danger px-0 px-md-5 mb-5">
+        <div class="row align-items-center px-3">
+            <div class="col-lg-6 text-center text-lg-left">
+                <h4 class="text-warning mb-4 mt-5 mt-lg-0">Learning Coaching Center</h4>
+                <h1 class="display-3 font-weight-bold text-warning">New Approach to Education</h1>
+                <p class="txt-light mb-4">At Chaturvedi Classes, we are committed to providing top-quality education and guidance to help students achieve their academic and career goals. With experienced faculty, interactive learning methods, and a result-oriented approach,
+                     we ensure that every student gets the best possible learning experience.</p>
+                <a href="auth.html" class="btn btn-secondary mt-1 py-3 px-5">ENROL NOW</a>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <img class="img-fluid mt-5" src="img/header.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Facilities Start -->
+    <div class="container-fluid pt-5">
+        <div class="container pb-3">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 pb-1">
+                    <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
+                        <i class="flaticon-019-pencil h1 font-weight-normal text-primary mb-3"></i>
+                        <div class="pl-4">
+                            <h4>Experienced Faculty</h4>
+                            <p class="m-0">Learn from highly skilled and passionate teachers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 pb-1">
+                    <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
+                        <i class="flaticon-032-book h1 font-weight-normal text-primary mb-3"></i>
+                        <div class="pl-4">
+                            <h4>Focused Learning</h4>
+                            <p class="m-0">Small batch sizes ensure personal attention to every student.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 pb-1">
+                    <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
+                        <i class="flaticon-030-crayons h1 font-weight-normal text-primary mb-3"></i>
+                        <div class="pl-4">
+                            <h4>Regular Test & Assessments</h4>
+                            <p class="m-0">Weekly tests to track progress and improve performance.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 pb-1">
+                    <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
+                        <i class="flaticon-041-abacus h1 font-weight-normal text-primary mb-3"></i>
+                        <div class="pl-4">
+                            <h4>Affordable Fees</h4>
+                            <p class="m-0">Quality education at a budget-friendly cost.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 pb-1">
+                    <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
+                        <i class="flaticon-014-blackboard h1 font-weight-normal text-primary mb-3"></i>
+                        <div class="pl-4">
+                            <h4>Doubt Clearing Sessions</h4>
+                            <p class="m-0">Special sessions to resolve queries and concepts.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 pb-1">
+                    <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
+                        <i class="flaticon-047-backpack h1 font-weight-normal text-primary mb-3"></i>
+                        <div class="pl-4">
+                            <h4>Study Material</h4>
+                            <p class="m-0">Updated Notes & resources for all subjects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Facilities Start -->
+
+
+    <!-- About Start -->
+    <div id="about" class="container-fluid py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <img class="img-fluid rounded mb-5 mb-lg-0" src="img/about-1.jpg" alt="">
+                </div>
+                <div class="col-lg-7">
+                    <p class="section-title pr-5"><span class="pr-2">Learn About Us</span></p>
+                    <h1 class="mb-4">Your Trusted Coaching for Academic Success</h1>
+                    <p>At Chaturvedi Classes, we are committed to providing high-quality education to students from Class 1st to 12th. Our experienced faculty ensures that each student receives the attention and guidance needed to excel academically.</p>
+                    
+                    <p>We specialize in all subjects for Classes 1st to 8th, and for Classes 9th & 10th, we focus on Mathematics, Science, and Social Science. Senior students in Classes 11th & 12th can opt for PCM (Physics, Chemistry, Mathematics) or PCB (Physics, Chemistry, Biology) to strengthen their foundation for competitive exams and higher education.</p>
+                    <div class="row pt-2 pb-4">
+                        <div class="col-6 col-md-4">
+                            <img class="img-fluid rounded" src="img/about-2.jpg" alt="">
+                        </div>
+                        <div class="col-6 col-md-8">
+                            <ul class="list-inline m-0">
+                                <li class="py-2 border-top border-bottom"><i class="fa fa-check text-primary mr-3"></i>Interactive Learning Methods</li>
+                                <li class="py-2 border-bottom"><i class="fa fa-check text-primary mr-3"></i>Career Guidance & Counseling</li>
+                                <li class="py-2 border-bottom"><i class="fa fa-check text-primary mr-3"></i>Parent-Teacher Interaction.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="" class="btn btn-primary mt-2 py-2 px-4">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Class Start -->
+    <div id="classes" class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <p class="section-title px-5"><span class="px-2">Courses We Offer</span></p>
+                <h1 class="mb-4">Classes for Your Kids</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-5">
+                    <div class="card border-0 bg-light shadow-sm pb-2">
+                        <img class="card-img-top mb-2" src="img/class-1.jpg" alt="">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Classes 1st to 8th</h4>
+                            <p class="card-text">All subjects covered with a strong foundation approach.</p>
+                        </div>
+                        <div class="card-footer bg-transparent py-4 px-5">
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Age of Kids</strong></div>
+                                <div class="col-6 py-1">3 - 10 Years</div>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Total Seats</strong></div>
+                                <div class="col-6 py-1">40 Seats</div>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Class Time</strong></div>
+                                <div class="col-6 py-1">08:00 - 10:00</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 py-1 text-right border-right"><strong>Tution Fee</strong></div>
+                                <div class="col-6 py-1">$290 / Month</div>
+                            </div>
+                        </div>
+                        <a href="" class="btn btn-primary px-4 mx-auto mb-4">Join Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <div class="card border-0 bg-light shadow-sm pb-2">
+                        <img class="card-img-top mb-2" src="img/class-2.jpg" alt="">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Classes 9th to 10th</h4>
+                            <p class="card-text">Mathematics, Science, and Social Science with in-depth explanations.</p>
+                        </div>
+                        <div class="card-footer bg-transparent py-4 px-5">
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Age of Kids</strong></div>
+                                <div class="col-6 py-1">10 - 15 Years</div>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Total Seats</strong></div>
+                                <div class="col-6 py-1">40 Seats</div>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Class Time</strong></div>
+                                <div class="col-6 py-1">08:00 - 10:00</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 py-1 text-right border-right"><strong>Tution Fee</strong></div>
+                                <div class="col-6 py-1">$290 / Month</div>
+                            </div>
+                        </div>
+                        <a href="" class="btn btn-primary px-4 mx-auto mb-4">Join Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <div class="card border-0 bg-light shadow-sm pb-2">
+                        <img class="card-img-top mb-2" src="img/class-3.jpg" alt="">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Classes 11th to 12th</h4>
+                            <p class="card-text">Specialized coaching for Physics, Chemistry, Mathematics, and Biology.</p>
+                        </div>
+                        <div class="card-footer bg-transparent py-4 px-5">
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Age of Kids</strong></div>
+                                <div class="col-6 py-1">10 - 18 Years</div>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Total Seats</strong></div>
+                                <div class="col-6 py-1">40 Seats</div>
+                            </div>
+                            <div class="row border-bottom">
+                                <div class="col-6 py-1 text-right border-right"><strong>Class Time</strong></div>
+                                <div class="col-6 py-1">08:00 - 10:00</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 py-1 text-right border-right"><strong>Tution Fee</strong></div>
+                                <div class="col-6 py-1">$290 / Month</div>
+                            </div>
+                        </div>
+                        <a href="" class="btn btn-primary px-4 mx-auto mb-4">Join Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Class End -->
+
+
+    <!-- Registration Start -->
+    <div id="register" class="container-fluid py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-5 mb-lg-0">
+                    <p class="section-title pr-5"><span class="pr-2">Book A Seat</span></p>
+                    <h1 class="mb-4">Enroll Today for a Brighter Future!</h1>
+                    <p>Looking for the best coaching to strengthen your concepts and boost your scores? Chaturvedi Classes is here to guide you! Whether you're in 1st to 8th and need help in all subjects, or in 9th to 12th focusing on Maths, Science, and competitive preparation, we ensure you understand every topic deeply and perform your best in exams.</p>
+                    <ul class="list-inline m-0">
+                        <li class="py-2"><i class="fa fa-check text-success mr-3"></i>1st to 8th – All Subjects Covered</li>
+                        <li class="py-2"><i class="fa fa-check text-success mr-3"></i>9th & 10th – Mathematics, Science, Social Science</li>
+                        <li class="py-2"><i class="fa fa-check text-success mr-3"></i>11th & 12th – PCB & PCM with expert guidance</li>
+                    </ul>
+                    <a href="auth.html" class="btn btn-primary mt-4 py-2 px-4">Book Now</a>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card border-0">
+                        <div class="card-header bg-secondary text-center p-4">
+                            <h1 class="text-primary m-0">Book A Seat</h1>
+                        </div>
+                        <div class="card-body rounded-bottom bg-primary p-5">
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control border-0 p-4" placeholder="Your Name" required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control border-0 p-4" placeholder="Your Email" required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <select class="custom-select border-0 px-4" style="height: 47px;">
+                                        <option selected>Select A Class</option>
+                                        <option value="1">Class 1st - 8th</option>
+                                        <option value="2">Class 9th - 10th</option>
+                                        <option value="3">Class 11th - 12th</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <a href="auth.html" class="btn btn-danger btn-block border-0 py-3">Book Now</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Registration End -->
+
+
+    <!-- Team Start -->
+    <div id="team" class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <p class="section-title px-5"><span class="px-2">Our Teachers</span></p>
+                <h1 class="mb-4">Meet Our Teachers</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 text-center team mb-5">
+                    <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
+                        <img class="img-fluid w-100" src="img/team-2.png" alt="" >
+                        <div
+                            class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
+                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <h4>Anubhav Chaturvedi</h4>
+                    <i>Expert Teacher</i>
+                </div>
+                <div class="col-md-6 col-lg-3 text-center team mb-5">
+                    <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
+                        <img class="img-fluid w-100" src="img/team-1.png" alt="" >
+                        <div
+                            class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
+                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;"
+                                href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <h4>Anupriya Chaturvedi</h4>
+                    <i>Best Teacher</i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+    <!-- Blog Start -->
+    <div id="blog" class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center pb-2">
+                <p class="section-title px-5"><span class="px-2">Learning Resources</span></p>
+                <h1 class="mb-4">Explore Our Study Materials</h1>
+            </div>
+            <div class="row pb-3">
+                <div class="col-lg-4 mb-4">
+                    <div class="card border-0 shadow-sm mb-2">
+                        <img class="card-img-top mb-2" src="img/blog-1.jpg" alt="">
+                        <div class="card-body bg-light text-center p-4">
+                            <h4 class="">Essential Notes</h4>
+                            <p>Get access to well-structured notes and study guides designed for a deep understanding of key subjects. Strengthen your concepts and prepare effectively for exams.</p>
+                            <a href="" class="btn btn-primary px-4 mx-auto my-2">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card border-0 shadow-sm mb-2">
+                        <img class="card-img-top mb-2" src="img/blog-2.jpg" alt="">
+                        <div class="card-body bg-light text-center p-4">
+                            <h4 class="">Sample Papers & Mock Tests</h4>
+                        
+                            <p>Improve your problem-solving skills with curated practice papers and mock tests. Enhance your exam preparation and boost confidence with real-time assessments.</p>
+                            <a href="" class="btn btn-primary px-4 mx-auto my-2">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card border-0 shadow-sm mb-2">
+                        <img class="card-img-top mb-2" src="img/blog-3.jpg" alt="">
+                        <div class="card-body bg-light text-center p-4">
+                            <h4 class="">Video Lectures</h4>
+                           
+                            <p>Youtube Video here</p>
+                            <a href="" class="btn btn-primary px-4 mx-auto my-2">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+
+    <!-- Footer Start -->
+    <div id="contactus" class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="row pt-5">
+            <div class="col-lg-4 col-md-6 mb-5">
+                <a href="" class="navbar-brand font-weight-bold text-danger m-0 mb-4 p-0" style="font-size: 40px; line-height: 40px;">
+                    <img src="img/logo.png" style="height: 50px;">
+                    <span class="text-white">Chaturvedi Classes</span>
+                </a>
+                <p>© Chaturvedi Classes. All Rights Reserved. Providing expert guidance and structured learning for students from Class 1st to 12th. Our goal is to build strong academic foundations and help students achieve excellence through personalized teaching and innovative learning methods.</p>
+                <div class="d-flex justify-content-start mt-4">
+                    <a class="btn btn-danger rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-danger rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-danger rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;" href="https://www.youtube.com/@chaturvedi_coaching.classes" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-danger rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;" href="https://www.instagram.com/chaturvedi_coaching.classes/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">Get In Touch</h3>
+                <div class="d-flex mb-4">
+                    <h4 class="fa fa-map-marker-alt text-primary mt-1"></h4>
+                    <div class="pl-3">
+                        <h5 class="text-white">Address</h5>
+                        <p class="m-0">House No. 279, Near Ranjana Gas Agency, Saraswati Nagar, Rasuliya, Narmadapuram</p>
+                    </div>
+                </div>
+                <div class="d-flex mb-4">
+                    <h4 class="fa fa-envelope text-primary mt-1"></h4>
+                    <div class="pl-3">
+                        <h5 class="text-white">Email</h5>
+                        <p class="m-0">chaturvedi2210@gmail.com</p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <h4 class="fa fa-phone-alt text-primary mt-1"></h4>
+                    <div class="pl-3">
+                        <h5 class="text-white">Phone</h5>
+                        <p class="m-0">+91 8795439696</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-5">
+                <h3 class="text-primary mb-4">Newsletter</h3>
+                <form action="">
+                    <div class="form-group">
+                        <input type="text" class="form-control border-0 py-4" placeholder="Your Name" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control border-0 py-4" placeholder="Your Email" required="required" />
+                    </div>
+                    <div>
+                        <button class="btn btn-danger btn-block border-0 py-3" type="submit">Submit Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container-fluid pt-5" style="border-top: 1px solid rgba(23, 162, 184, .2);">
+            <p class="m-0 text-center text-white">
+                &copy; <a class="text-primary font-weight-bold" href="#">Chaturvedi Classes</a>. All Rights Reserved. Designed by
+                <a class="text-primary font-weight-bold" href="https://dhruv-gour.netlify.app" target="_blank">Dhruv Gour</a>
+            </p>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary p-3 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script>
+        document.querySelectorAll('a.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll animation
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                const isVisible = (elementTop < window.innerHeight) && (elementBottom >= 0);
+                if (isVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Add animation classes to elements
+        document.querySelectorAll('.card, .team-member, .facility-item, .blog-card').forEach(element => {
+            element.classList.add('animate-on-scroll');
+        });
+    </script>
+        
+</body>
+
+</html>

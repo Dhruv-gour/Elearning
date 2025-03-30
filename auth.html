@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login/Register - Chaturvedi Classes</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Chaturvedi Classes" name="keywords">
+    <meta content="Chaturvedi Classes" name="description">
+
+    <!-- Favicon -->
+    <link href="img/logo.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Auth Page Styles */
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .auth-container {
+            padding: 50px 0;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .auth-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            animation: slideUp 0.6s ease;
+        }
+
+        .auth-header {
+            background: linear-gradient(45deg, #990000, #dc3545);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .auth-header img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+
+        .auth-header h3 {
+            color: #ff8c00;
+            font-weight: bold;
+        }
+
+        .auth-body {
+            padding: 30px;
+        }
+
+        .form-control {
+            border: 2px solid #eee;
+            border-radius: 8px;
+            padding: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #ff8c00;
+            box-shadow: 0 0 0 0.2rem rgba(255, 140, 0, 0.25);
+        }
+
+        .password-input-group {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            padding: 0;
+            font-size: 16px;
+        }
+
+        .password-toggle:hover {
+            color: #ff8c00;
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding: 12px 40px 12px 12px;
+            color: #333;
+            background-color: white;
+            cursor: pointer;
+            height: auto;
+            line-height: 1.5;
+        }
+
+        select.form-control option {
+            color: #333;
+            background-color: white;
+            padding: 12px;
+            min-height: 1.5em;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+
+        select.form-control:focus {
+            outline: none;
+            border-color: #ff8c00;
+            box-shadow: 0 0 0 0.2rem rgba(255, 140, 0, 0.25);
+        }
+
+        /* Fix for dropdown text alignment */
+        .form-group select.form-control {
+            text-align: left;
+            text-align-last: left;
+            -moz-text-align-last: left;
+            text-indent: 0;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+
+        /* Fix for dropdown option height */
+        .form-group select.form-control option {
+            padding: 12px;
+            min-height: 2em;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-auth {
+            background: linear-gradient(45deg, #990000, #dc3545);
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-auth:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .auth-switch a {
+            color: #ff8c00;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .auth-switch a:hover {
+            color: #e67e00;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .success-message {
+            color: #28a745;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #ff8c00;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="auth-card">
+                        <div class="auth-header">
+                            <img src="img/logo.png" alt="Chaturvedi Classes">
+                            <h3 class="mb-0">Welcome to Chaturvedi Classes</h3>
+                        </div>
+                        <div class="auth-body">
+                            <!-- Login Form -->
+                            <div id="loginFormContainer">
+                                <form id="loginForm" class="mb-4">
+                                    <h4 class="text-center mb-4">Login</h4>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" class="form-control" id="loginEmail" required>
+                                        <div class="error-message" id="loginEmailError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <div class="password-input-group">
+                                            <input type="password" class="form-control" id="loginPassword" required>
+                                            <button type="button" class="password-toggle" id="toggleLoginPassword">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                        <div class="error-message" id="loginPasswordError"></div>
+                                    </div>
+                                    <button type="submit" class="btn btn-auth btn-block">Login</button>
+                                    <div class="loading" id="loginLoading">
+                                        <div class="loading-spinner"></div>
+                                    </div>
+                                    <div class="success-message" id="loginSuccess"></div>
+                                    <div class="error-message" id="loginError"></div>
+                                </form>
+                            </div>
+
+                            <!-- Register Form -->
+                            <div id="registerFormContainer" style="display: none;">
+                                <form id="registerForm">
+                                    <h4 class="text-center mb-4">Register</h4>
+                                    <div class="form-group">
+                                        <label>Full Name</label>
+                                        <input type="text" class="form-control" id="registerName" required>
+                                        <div class="error-message" id="registerNameError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" class="form-control" id="registerEmail" required>
+                                        <div class="error-message" id="registerEmailError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Mobile Number</label>
+                                        <input type="tel" class="form-control" id="registerMobile" pattern="[0-9]{10}" maxlength="10" placeholder="Enter 10 digit mobile number" required>
+                                        <div class="error-message" id="registerMobileError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <div class="password-input-group">
+                                            <input type="password" class="form-control" id="registerPassword" required>
+                                            <button type="button" class="password-toggle" id="toggleRegisterPassword">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                        <div class="error-message" id="registerPasswordError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Age Group</label>
+                                        <select class="form-control" id="registerAgeGroup" required>
+                                            <option value="">Select Age Group</option>
+                                            <option value="3-10">3 - 10 Years</option>
+                                            <option value="10-15">10 - 15 Years</option>
+                                            <option value="15-18">15 - 18 Years</option>
+                                        </select>
+                                        <div class="error-message" id="registerAgeGroupError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Select Course</label>
+                                        <select class="form-control" id="registerCourse" required>
+                                            <option value="">Select Course</option>
+                                            <option value="1-8">Class 1st - 8th</option>
+                                            <option value="9-10">Class 9th - 10th</option>
+                                            <option value="11-12">Class 11th - 12th</option>
+                                        </select>
+                                        <div class="error-message" id="registerCourseError"></div>
+                                    </div>
+                                    <button type="submit" class="btn btn-auth btn-block">Register</button>
+                                    <div class="loading" id="registerLoading">
+                                        <div class="loading-spinner"></div>
+                                    </div>
+                                    <div class="success-message" id="registerSuccess"></div>
+                                    <div class="error-message" id="registerError"></div>
+                                </form>
+                            </div>
+
+                            <div class="auth-switch">
+                                <p class="mb-0">Don't have an account? <a href="#" id="showRegister">Register</a></p>
+                                <p class="mb-0" style="display: none;">Already have an account? <a href="#" id="showLogin">Login</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
+        import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyARe1dyFVhMkf5V3DlKI2t3ksl7GFeZXZQ",
+            authDomain: "elearning-33716.firebaseapp.com",
+            databaseURL: "https://elearning-33716-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "elearning-33716",
+            storageBucket: "elearning-33716.firebasestorage.app",
+            messagingSenderId: "1032179731946",
+            appId: "1:1032179731946:web:e26242f924fbe7cca0b693"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // Login form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const loading = document.getElementById('loginLoading');
+            const success = document.getElementById('loginSuccess');
+            const error = document.getElementById('loginError');
+
+            // Clear previous errors
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+                el.textContent = '';
+            });
+
+            loading.style.display = 'block';
+            success.style.display = 'none';
+            error.style.display = 'none';
+
+            // Get all users from the database
+            const usersRef = ref(database, 'users');
+            get(usersRef)
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        const users = snapshot.val();
+                        // Find user with matching email and password
+                        const user = Object.values(users).find(user => 
+                            user.email === email && user.password === password
+                        );
+
+                        if (user) {
+                            // User found, login successful
+                            console.log('Login successful:', user);
+                            success.textContent = 'Login successful! Redirecting...';
+                            success.style.display = 'block';
+                            setTimeout(() => {
+                                window.location.href = 'index.html';
+                            }, 1500);
+                        } else {
+                            // User not found or wrong credentials
+                            error.textContent = 'User not found';
+                            error.style.display = 'block';
+                        }
+                    } else {
+                        // No users in database
+                        error.textContent = 'User not found';
+                        error.style.display = 'block';
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error checking login:', error);
+                    error.textContent = 'Error checking login. Please try again.';
+                    error.style.display = 'block';
+                })
+                .finally(() => {
+                    loading.style.display = 'none';
+                });
+        });
+
+        // Register form submission
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const mobile = document.getElementById('registerMobile').value;
+            const password = document.getElementById('registerPassword').value;
+            const ageGroup = document.getElementById('registerAgeGroup').value;
+            const selectedCourse = document.getElementById('registerCourse').value;
+            const loading = document.getElementById('registerLoading');
+            const success = document.getElementById('registerSuccess');
+            const error = document.getElementById('registerError');
+
+            // Clear previous errors
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+                el.textContent = '';
+            });
+
+            // Validation
+            if (!/^[0-9]{10}$/.test(mobile)) {
+                document.getElementById('registerMobileError').textContent = 'Please enter a valid 10-digit mobile number';
+                document.getElementById('registerMobileError').style.display = 'block';
+                return;
+            }
+
+            if (password.length < 6) {
+                document.getElementById('registerPasswordError').textContent = 'Password must be at least 6 characters long';
+                document.getElementById('registerPasswordError').style.display = 'block';
+                return;
+            }
+
+            loading.style.display = 'block';
+            success.style.display = 'none';
+            error.style.display = 'none';
+
+            // Generate a unique ID for the user
+            const userId = Date.now().toString();
+
+            // Store user data in Realtime Database
+            const userData = {
+                name: name,
+                email: email,
+                mobile: mobile,
+                password: password, // Note: In a real app, you should hash the password
+                ageGroup: ageGroup,
+                course: selectedCourse,
+                createdAt: new Date().toISOString()
+            };
+            
+            console.log('Attempting to store user data:', userData);
+            const userRef = ref(database, 'users/' + userId);
+            
+            set(userRef, userData)
+                .then(() => {
+                    console.log('User data stored successfully');
+                    success.textContent = 'Registration successful! Redirecting...';
+                    success.style.display = 'block';
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                })
+                .catch((error) => {
+                    console.error('Error storing user data:', error);
+                    error.textContent = 'Error storing user data. Please try again.';
+                    error.style.display = 'block';
+                })
+                .finally(() => {
+                    loading.style.display = 'none';
+                });
+        });
+
+        // Form switching
+        window.addEventListener('load', function() {
+            const showRegisterBtn = document.getElementById('showRegister');
+            const showLoginBtn = document.getElementById('showLogin');
+            const loginFormContainer = document.getElementById('loginFormContainer');
+            const registerFormContainer = document.getElementById('registerFormContainer');
+            const registerText = document.querySelector('.auth-switch p:first-child');
+            const loginText = document.querySelector('.auth-switch p:last-child');
+
+            if (showRegisterBtn && showLoginBtn && loginFormContainer && registerFormContainer) {
+                showRegisterBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    loginFormContainer.style.display = 'none';
+                    registerFormContainer.style.display = 'block';
+                    registerText.style.display = 'none';
+                    loginText.style.display = 'block';
+                });
+
+                showLoginBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    registerFormContainer.style.display = 'none';
+                    loginFormContainer.style.display = 'block';
+                    loginText.style.display = 'none';
+                    registerText.style.display = 'block';
+                });
+            }
+        });
+
+        // Password visibility toggle for register
+        document.getElementById('toggleRegisterPassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('registerPassword');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+
+        // Password visibility toggle for login
+        document.getElementById('toggleLoginPassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('loginPassword');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+    </script>
+</body>
+
+</html> 
