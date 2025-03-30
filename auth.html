@@ -428,12 +428,12 @@
                             }, 1500);
                         } else {
                             // User not found or wrong credentials
-                            error.textContent = 'User not found';
+                            error.textContent = 'Incorrect email or password. Please re-enter.';
                             error.style.display = 'block';
                         }
                     } else {
                         // No users in database
-                        error.textContent = 'User not found';
+                        error.textContent = 'Incorrect email or password. Please re-enter.';
                         error.style.display = 'block';
                     }
                 })
@@ -483,24 +483,43 @@
             success.style.display = 'none';
             error.style.display = 'none';
 
-            // Generate a unique ID for the user
-            const userId = Date.now().toString();
+            // First check if email or mobile already exists
+            const usersRef = ref(database, 'users');
+            get(usersRef)
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        const users = snapshot.val();
+                        // Check if email or mobile already exists
+                        const existingUser = Object.values(users).find(user => 
+                            user.email === email || user.mobile === mobile
+                        );
 
-            // Store user data in Realtime Database
-            const userData = {
-                name: name,
-                email: email,
-                mobile: mobile,
-                password: password, // Note: In a real app, you should hash the password
-                ageGroup: ageGroup,
-                course: selectedCourse,
-                createdAt: new Date().toISOString()
-            };
-            
-            console.log('Attempting to store user data:', userData);
-            const userRef = ref(database, 'users/' + userId);
-            
-            set(userRef, userData)
+                        if (existingUser) {
+                            // User already exists
+                            error.textContent = 'User already registered. Please login.';
+                            error.style.display = 'block';
+                            loading.style.display = 'none';
+                            return;
+                        }
+                    }
+
+                    // If no existing user found, proceed with registration
+                    const userId = Date.now().toString();
+                    const userData = {
+                        name: name,
+                        email: email,
+                        mobile: mobile,
+                        password: password,
+                        ageGroup: ageGroup,
+                        course: selectedCourse,
+                        createdAt: new Date().toISOString()
+                    };
+                    
+                    console.log('Attempting to store user data:', userData);
+                    const userRef = ref(database, 'users/' + userId);
+                    
+                    return set(userRef, userData);
+                })
                 .then(() => {
                     console.log('User data stored successfully');
                     success.textContent = 'Registration successful! Redirecting...';
