@@ -854,10 +854,13 @@
             /* Desktop Navbar Brand Size */
             .navbar-brand {
                 font-size: 24px !important;
+                display: flex;
+                align-items: center;
+                gap: 15px;
             }
             .navbar-brand span.text-danger {
-                font-size: 26px;
-                font-weight: 700;
+                font-size: 42px;
+                font-weight: 600;
                 letter-spacing: 0.5px;
             }
         }
@@ -1006,6 +1009,143 @@
         .d-flex .far.fa-2x {
             color: #D12C39 !important;
         }
+
+        /* Add styles for chat bubbles */
+        .chat-bubble {
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .chat-bubble.student {
+            animation-delay: 0.5s;
+        }
+
+        .chat-bubble.teacher {
+            animation-delay: 1s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Add responsive styles for chat bubbles */
+        @media (max-width: 991.98px) {
+            #home .chat-bubble.teacher {
+                top: 10%;
+                right: 5%;
+                max-width: 150px;
+            }
+            #home .chat-bubble.student {
+                top: 45%;
+                left: 5%;
+                max-width: 200px;
+            }
+            #home .img-fluid {
+                max-height: 280px !important;
+                margin-top: 3rem !important;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            #home .chat-bubble.teacher {
+                top: 5%;
+                right: 5%;
+                max-width: 130px;
+            }
+            #home .chat-bubble.student {
+                top: 35%;
+                left: 5%;
+                max-width: 180px;
+            }
+            #home .img-fluid {
+                max-height: 250px !important;
+                margin-top: 2.5rem !important;
+            }
+            #home .chat-bubble p {
+                font-size: 12px !important;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            #home .chat-bubble.teacher {
+                top: 0;
+                right: 2%;
+                max-width: 120px;
+            }
+            #home .chat-bubble.student {
+                top: 30%;
+                left: 2%;
+                max-width: 160px;
+            }
+            #home .img-fluid {
+                max-height: 220px !important;
+                margin-top: 2rem !important;
+            }
+        }
+
+        /* Floating Call Button Styles */
+        .btn-floating-call {
+            position: fixed;
+            bottom: 90px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            background-color: #ff8c00;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .btn-floating-call i {
+            font-size: 20px;
+            animation: pulse 1.5s infinite;
+        }
+
+        .btn-floating-call:hover {
+            transform: scale(1.1);
+            background-color: #e67e00;
+            color: white;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 767.98px) {
+            .btn-floating-call {
+                bottom: 80px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .btn-floating-call i {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 
@@ -1018,7 +1158,7 @@
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
-                    <a href="#home" class="navbar-brand font-weight-bold text-secondary">
+                    <a href="index.html" class="navbar-brand font-weight-bold text-secondary">
                         <img src="img/logo.png" alt="Chaturvedi Classes">
                         <span class="text-danger">Chaturvedi Classes</span>
                     </a>
@@ -1050,8 +1190,14 @@
                 <p class="txt-light mb-4">Chaturvedi Classes provides expert guidance, interactive learning, and result-driven education for academic success.</p>
                 <a href="auth.html" class="btn btn-secondary mt-1 py-3 px-5">ENROL NOW</a>
             </div>
-            <div class="col-lg-6 text-center text-lg-right">
-                <img class="img-fluid mt-3" src="img/header.png" alt="">
+            <div class="col-lg-6 text-center text-lg-right position-relative">
+                <div class="chat-bubble teacher" style="position: absolute; top: 20%; right: 10%; background: white; padding: 8px 15px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1; max-width: 200px;">
+                    <p style="margin: 0; font-size: 14px;">What is Chaturvedi Classes?</p>
+                </div>
+                <div class="chat-bubble student" style="position: absolute; top: 45%; left: 10%; background: #b42023; color: white; padding: 8px 15px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1; max-width: 250px;">
+                    <p style="margin: 0; font-size: 14px;">A place for expert guidance and success.</p>
+                </div>
+                <img class="img-fluid mt-5 mt-lg-3" src="img/thumbnail.png" alt="Chat between student and teacher" style="max-height: 350px; width: auto;">
             </div>
         </div>
     </div>
@@ -1422,14 +1568,14 @@
                     <h4 class="fa fa-envelope text-primary mt-1"></h4>
                     <div class="pl-3">
                         <h5 class="text-white">Email</h5>
-                        <p class="m-0">chaturvedi2210@gmail.com</p>
+                        <p class="m-0"><a href="mailto:chaturvedi2210@gmail.com" style="color: inherit; text-decoration: none;">chaturvedi2210@gmail.com</a></p>
                     </div>
                 </div>
                 <div class="d-flex">
                     <h4 class="fa fa-phone-alt text-primary mt-1"></h4>
                     <div class="pl-3">
                         <h5 class="text-white">Phone</h5>
-                        <p class="m-0">+91 8795439696</p>
+                        <p class="m-0"><a href="tel:+918795439696" style="color: inherit; text-decoration: none;">+91 8795439696</a></p>
                     </div>
                 </div>
             </div>
@@ -1457,10 +1603,13 @@
     </div>
     <!-- Footer End -->
 
+    <!-- Floating Call Button -->
+    <a href="tel:+918795439696" class="btn-floating-call">
+        <i class="fa fa-phone-alt"></i>
+    </a>
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary p-3 back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
