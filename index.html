@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <!-- Flaticon Font -->
     <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
@@ -691,30 +691,350 @@
             height: 50px;
             font-weight: 600;
         }
+
+        /* Sticky Navbar Styles */
+        .navbar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 12px 15px;
+            height: auto;
+        }
+
+        .navbar.scrolled {
+            padding: 8px 15px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 45px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled .navbar-brand img {
+            height: 40px;
+        }
+
+        /* Navigation Links */
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.7rem 1rem !important;
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger.mobile-join-btn,
+        .btn-danger.desktop-join-btn {
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* Mobile Navbar Styles */
+        @media (max-width: 991.98px) {
+            body {
+                padding-top: 65px;
+            }
+
+            .navbar {
+                padding: 8px 12px;
+            }
+
+            .navbar.scrolled {
+                padding: 6px 12px;
+            }
+
+            .navbar-brand {
+                margin: 0;
+                padding: 0;
+            }
+
+            .navbar-brand span {
+                display: none;
+            }
+
+            .navbar-brand img {
+                height: 40px !important;
+            }
+
+            .navbar.scrolled .navbar-brand img {
+                height: 35px !important;
+            }
+
+            .navbar-toggler {
+                padding: 4px 8px;
+                border: none;
+                background: transparent;
+                margin-right: 12px;
+            }
+
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+            }
+
+            .navbar-toggler:focus {
+                outline: none;
+                box-shadow: none;
+            }
+
+            .mobile-join-btn {
+                margin-left: auto;
+                white-space: nowrap;
+            }
+
+            .navbar > .container-fluid {
+                align-items: center;
+                gap: 8px;
+            }
+
+            .navbar-collapse {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                z-index: 1000;
+                padding: 10px 0;
+            }
+
+            .navbar-nav {
+                padding: 5px 0;
+            }
+
+            .nav-item {
+                text-align: center;
+            }
+
+            .nav-item .nav-link {
+                padding: 12px 20px !important;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Desktop Navbar Styles */
+        @media (min-width: 992px) {
+            body {
+                padding-top: 80px;
+            }
+
+            .navbar-nav .nav-link {
+                position: relative;
+            }
+
+            .navbar-nav .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: 0;
+                height: 2px;
+                background: var(--primary);
+                transition: all 0.3s ease;
+                transform: translateX(-50%);
+            }
+
+            .navbar-nav .nav-link:hover::after,
+            .navbar-nav .nav-link.active::after {
+                width: 80%;
+            }
+
+            /* Desktop Navbar Brand Size */
+            .navbar-brand {
+                font-size: 24px !important;
+            }
+            .navbar-brand span.text-danger {
+                font-size: 26px;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+            }
+        }
+
+        /* Header Text Styling */
+        .header-title {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        
+        .header-title .highlight {
+            color: #00394F;
+        }
+
+        /* Update Navigation Link Styles */
+        .navbar-nav .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar-nav .nav-link.active::after {
+            width: 80%;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-nav .nav-link::after {
+                bottom: 0;
+                height: 2px;
+            }
+        }
+
+        /* Add new styles for home section */
+        #home {
+            padding: 40px 0;
+            min-height: auto;
+            background: linear-gradient(135deg, #e9d5ff 0%, #818cf8 50%, #3b82f6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        #home .text-warning {
+            color: #00394f !important;
+        }
+
+        #home .txt-light {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        #home .highlight {
+            color: #D12C39;
+            font-weight: 700;
+        }
+
+        #home .btn-secondary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+        }
+
+        #home .btn-secondary:hover {
+            background-color: #e67e00;
+            border-color: #e67e00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        #home .img-fluid {
+            max-height: 400px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        @media (max-width: 991.98px) {
+            #home {
+                padding: 30px 0;
+            }
+            
+            #home .img-fluid {
+                max-height: 300px;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            #home .img-fluid {
+                max-height: 250px;
+            }
+        }
+
+        /* Footer Gradient and Text Styles */
+        #contactus.container-fluid {
+            background: linear-gradient(135deg, #C3BBFC 0%, #ff8c00 100%);
+        }
+
+        #contactus .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        #contactus .navbar-brand .text-white {
+            font-size: 32px;
+            line-height: 1.2;
+            margin-bottom: 0;
+        }
+
+        #contactus .navbar-brand img {
+            height: 50px;
+            width: auto;
+        }
+
+        @media (max-width: 767.98px) {
+            #contactus .navbar-brand .text-white {
+                font-size: 28px;
+            }
+        }
+
+        /* Update facility icons color */
+        .d-flex .fa-2x.text-primary,
+        .d-flex .fas.fa-2x,
+        .d-flex .far.fa-2x {
+            color: #D12C39 !important;
+        }
     </style>
 </head>
 
 <body>
     <!-- Navbar Start -->
-    <div class="container-fluid bg-light position-relative shadow">
-        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
-            <a href="" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
-                <img src="img/logo.png" style="height: 50px;">
-                <span class="text-danger">Chaturvedi Classes</span>
-            </a>
+    <div class="navbar-container bg-light shadow">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light">
+            <div class="container-fluid px-lg-5">
+                <div class="d-flex align-items-center">
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
+                    <a href="#home" class="navbar-brand font-weight-bold text-secondary">
+                        <img src="img/logo.png" alt="Chaturvedi Classes">
+                        <span class="text-danger">Chaturvedi Classes</span>
+                    </a>
+                </div>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav font-weight-bold mx-auto py-0">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="#home" class="nav-item nav-link">Home</a>
                     <a href="#about" class="nav-item nav-link">About</a>
                     <a href="#classes" class="nav-item nav-link">Classes</a>
                     <a href="#team" class="nav-item nav-link">Teachers</a>
-                    <a href="#blog" class="nav-item nav-link">Resources</a>
+                        <a href="#blog" class="nav-item nav-link">Resources</a>
                     <a href="#contactus" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="auth.html" class="btn btn-danger px-4">Join Classes</a>
+                </div>
+                <a href="auth.html" class="btn btn-danger px-4 d-none d-lg-block desktop-join-btn">Join Classes</a>
+                <a href="auth.html" class="btn btn-danger d-lg-none mobile-join-btn">Join Classes</a>
             </div>
         </nav>
     </div>
@@ -722,17 +1042,16 @@
 
 
     <!-- Header Start -->
-    <div class="container-fluid bg-danger px-0 px-md-5 mb-5">
+    <div id="home" class="container-fluid px-0 px-md-5 mb-5">
         <div class="row align-items-center px-3">
             <div class="col-lg-6 text-center text-lg-left">
                 <h4 class="text-warning mb-4 mt-5 mt-lg-0">Learning Coaching Center</h4>
-                <h1 class="display-3 font-weight-bold text-warning">New Approach to Education</h1>
-                <p class="txt-light mb-4">At Chaturvedi Classes, we are committed to providing top-quality education and guidance to help students achieve their academic and career goals. With experienced faculty, interactive learning methods, and a result-oriented approach,
-                     we ensure that every student gets the best possible learning experience.</p>
+                <h1 class="display-3 font-weight-bold text-warning header-title">New <span class="highlight">Approach</span> to <span class="highlight">Education</span></h1>
+                <p class="txt-light mb-4">Chaturvedi Classes provides expert guidance, interactive learning, and result-driven education for academic success.</p>
                 <a href="auth.html" class="btn btn-secondary mt-1 py-3 px-5">ENROL NOW</a>
             </div>
             <div class="col-lg-6 text-center text-lg-right">
-                <img class="img-fluid mt-5" src="img/header.png" alt="">
+                <img class="img-fluid mt-3" src="img/header.png" alt="">
             </div>
         </div>
     </div>
@@ -745,7 +1064,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 pb-1">
                     <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
-                        <i class="flaticon-019-pencil h1 font-weight-normal text-primary mb-3"></i>
+                        <i class="fas fa-chalkboard-teacher fa-2x"></i>
                         <div class="pl-4">
                             <h4>Experienced Faculty</h4>
                             <p class="m-0">Learn from highly skilled and passionate teachers.</p>
@@ -754,7 +1073,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 pb-1">
                     <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
-                        <i class="flaticon-032-book h1 font-weight-normal text-primary mb-3"></i>
+                        <i class="fas fa-user-graduate fa-2x"></i>
                         <div class="pl-4">
                             <h4>Focused Learning</h4>
                             <p class="m-0">Small batch sizes ensure personal attention to every student.</p>
@@ -763,16 +1082,16 @@
                 </div>
                 <div class="col-lg-4 col-md-6 pb-1">
                     <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
-                        <i class="flaticon-030-crayons h1 font-weight-normal text-primary mb-3"></i>
+                        <i class="far fa-clipboard fa-2x"></i>
                         <div class="pl-4">
-                            <h4>Regular Test & Assessments</h4>
+                            <h4>Regular Test</h4>
                             <p class="m-0">Weekly tests to track progress and improve performance.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 pb-1">
                     <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
-                        <i class="flaticon-041-abacus h1 font-weight-normal text-primary mb-3"></i>
+                        <i class="fas fa-coins fa-2x"></i>
                         <div class="pl-4">
                             <h4>Affordable Fees</h4>
                             <p class="m-0">Quality education at a budget-friendly cost.</p>
@@ -781,7 +1100,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 pb-1">
                     <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
-                        <i class="flaticon-014-blackboard h1 font-weight-normal text-primary mb-3"></i>
+                        <i class="fas fa-question-circle fa-2x"></i>
                         <div class="pl-4">
                             <h4>Doubt Clearing Sessions</h4>
                             <p class="m-0">Special sessions to resolve queries and concepts.</p>
@@ -790,7 +1109,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 pb-1">
                     <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
-                        <i class="flaticon-047-backpack h1 font-weight-normal text-primary mb-3"></i>
+                        <i class="fas fa-book fa-2x"></i>
                         <div class="pl-4">
                             <h4>Study Material</h4>
                             <p class="m-0">Updated Notes & resources for all subjects.</p>
@@ -800,7 +1119,7 @@
             </div>
         </div>
     </div>
-    <!-- Facilities Start -->
+    <!-- Facilities End -->
 
 
     <!-- About Start -->
@@ -812,8 +1131,8 @@
                 </div>
                 <div class="col-lg-7">
                     <p class="section-title pr-5"><span class="pr-2">Learn About Us</span></p>
-                    <h1 class="mb-4">Your Trusted Coaching for Academic Success</h1>
-                    <p>At Chaturvedi Classes, we are committed to providing high-quality education to students from Class 1st to 12th. Our experienced faculty ensures that each student receives the attention and guidance needed to excel academically.</p>
+                    <h1 class="mb-4">Trusted Coaching for Academic Success</h1>
+                    <p>Chaturvedi Classes aims to providing high-quality education to students from Class 1st to 12th. Our experienced faculty ensures that each student receives the attention and guidance needed to excel academically.</p>
                     
                     <p>We specialize in all subjects for Classes 1st to 8th, and for Classes 9th & 10th, we focus on Mathematics, Science, and Social Science. Senior students in Classes 11th & 12th can opt for PCM (Physics, Chemistry, Mathematics) or PCB (Physics, Chemistry, Biology) to strengthen their foundation for competitive exams and higher education.</p>
                     <div class="row pt-2 pb-4">
@@ -828,7 +1147,7 @@
                             </ul>
                         </div>
                     </div>
-                    <a href="" class="btn btn-primary mt-2 py-2 px-4">Learn More</a>
+                    <a href="" class="btn btn-primary mt-2 py-2 px-4">Get Started</a>
                 </div>
             </div>
         </div>
@@ -1033,7 +1352,7 @@
         <div class="container">
             <div class="text-center pb-2">
                 <p class="section-title px-5"><span class="px-2">Learning Resources</span></p>
-                <h1 class="mb-4">Explore Our Study Materials</h1>
+                <h1 class="mb-4">Explore Our Study Resources</h1>
             </div>
             <div class="row pb-3">
                 <div class="col-lg-4 mb-4">
@@ -1050,7 +1369,7 @@
                     <div class="card border-0 shadow-sm mb-2">
                         <img class="card-img-top mb-2" src="img/blog-2.jpg" alt="">
                         <div class="card-body bg-light text-center p-4">
-                            <h4 class="">Sample Papers & Mock Tests</h4>
+                            <h4 class="">Sample Papers</h4>
                         
                             <p>Improve your problem-solving skills with curated practice papers and mock tests. Enhance your exam preparation and boost confidence with real-time assessments.</p>
                             <a href="" class="btn btn-primary px-4 mx-auto my-2">Read More</a>
@@ -1075,14 +1394,14 @@
 
 
     <!-- Footer Start -->
-    <div id="contactus" class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5">
+    <div id="contactus" class="container-fluid text-white mt-5 py-5 px-sm-3 px-md-5">
         <div class="row pt-5">
             <div class="col-lg-4 col-md-6 mb-5">
-                <a href="" class="navbar-brand font-weight-bold text-danger m-0 mb-4 p-0" style="font-size: 40px; line-height: 40px;">
-                    <img src="img/logo.png" style="height: 50px;">
+                <a href="" class="navbar-brand font-weight-bold text-danger m-0 mb-4 p-0">
+                    <img src="img/logo.png" alt="Chaturvedi Classes Logo">
                     <span class="text-white">Chaturvedi Classes</span>
                 </a>
-                <p>© Chaturvedi Classes. All Rights Reserved. Providing expert guidance and structured learning for students from Class 1st to 12th. Our goal is to build strong academic foundations and help students achieve excellence through personalized teaching and innovative learning methods.</p>
+                <p>Providing expert guidance and structured learning for students. Our goal is to build strong academic foundations and help students achieve excellence through personalized teaching and innovative learning methods.</p>
                 <div class="d-flex justify-content-start mt-4">
                     <a class="btn btn-danger rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-danger rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -1131,7 +1450,7 @@
         </div>
         <div class="container-fluid pt-5" style="border-top: 1px solid rgba(23, 162, 184, .2);">
             <p class="m-0 text-center text-white">
-                &copy; <a class="text-primary font-weight-bold" href="#">Chaturvedi Classes</a>. All Rights Reserved. Designed by
+                &copy; <a class="text-primary font-weight-bold" href="#">Chaturvedi Classes</a> All Rights Reserved. Designed by
                 <a class="text-primary font-weight-bold" href="https://dhruv-gour.netlify.app" target="_blank">Dhruv Gour</a>
             </p>
         </div>
@@ -1158,15 +1477,92 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
-        document.querySelectorAll('a.nav-link').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        // Update scroll behavior and active link management
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section, div[id]');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            const navbar = document.querySelector('.navbar');
+            const navbarHeight = navbar.offsetHeight;
+
+            // Smooth scroll function
+            function smoothScroll(target, duration) {
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                let startTime = null;
+
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const run = ease(timeElapsed, startPosition, distance, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(animation);
+                }
+
+                function ease(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t + b;
+                    t--;
+                    return -c / 2 * (t * (t - 2) - 1) + b;
+                }
+
+                requestAnimationFrame(animation);
+            }
+
+            // Handle navigation clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth' });
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        smoothScroll(targetSection, 1000);
+                        
+                        // Close mobile menu if open
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarCollapse.classList.contains('show')) {
+                            navbarCollapse.classList.remove('show');
+                        }
+                    }
+                });
             });
+
+            // Update active link on scroll
+            function updateActiveLink() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - navbarHeight - 100;
+                    const sectionHeight = section.offsetHeight;
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Handle scroll events
+            window.addEventListener('scroll', function() {
+                updateActiveLink();
+                
+                // Navbar background change on scroll
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Initial active link check
+            updateActiveLink();
         });
 
-        // Navbar scroll effect
+        // Update the scroll event listener
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
