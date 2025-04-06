@@ -3,10 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Chaturvedi Classes</title>
+    <title>Chaturvedi Classes - Expert Offline Coaching in Narmadapuram</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Chaturvedi Classes" name="keywords">
-    <meta content="Chaturvedi Classes" name="description">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Join Chaturvedi Classes top-quality offline coaching, school subjects, and competitive exam preparation in Narmadapuram.">
+    <meta name="keywords" content="Chaturvedi Classes, coaching in Narmadapuram, Hoshangabad, coaching institute, offline classes, school tuition, competitive exam preparation">
+    <meta name="author" content="Chaturvedi Classes Team">
 
     <!-- Favicon -->
     <link href="img/logo.png" rel="icon">
@@ -1273,7 +1275,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5">
-                    <img class="img-fluid rounded mb-5 mb-lg-0" src="img/about-1.jpg" alt="">
+                    <img class="img-fluid rounded mb-5 mb-lg-0" src="img/about-img.jpg" alt="">
                 </div>
                 <div class="col-lg-7">
                     <p class="section-title pr-5"><span class="pr-2">Learn About Us</span></p>
@@ -1283,7 +1285,7 @@
                     <p>We specialize in all subjects for Classes 1st to 8th, and for Classes 9th & 10th, we focus on Mathematics, Science, and Social Science. Senior students in Classes 11th & 12th can opt for PCM (Physics, Chemistry, Mathematics) or PCB (Physics, Chemistry, Biology) to strengthen their foundation for competitive exams and higher education.</p>
                     <div class="row pt-2 pb-4">
                         <div class="col-6 col-md-4">
-                            <img class="img-fluid rounded" src="img/about-2.jpg" alt="">
+                            <img class="img-fluid rounded" src="img/about2nd.webp" alt="">
                         </div>
                         <div class="col-6 col-md-8">
                             <ul class="list-inline m-0">
@@ -1293,7 +1295,7 @@
                             </ul>
                         </div>
                     </div>
-                    <a href="" class="btn btn-primary mt-2 py-2 px-4">Get Started</a>
+                    <a href="auth.html" class="btn btn-primary mt-2 py-2 px-4">Get Started</a>
                 </div>
             </div>
         </div>
@@ -1331,10 +1333,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-6 py-1 text-right border-right"><strong>Tution Fee</strong></div>
-                                <div class="col-6 py-1">$290 / Month</div>
+                                <div class="col-6 py-1">₹1800 / Month</div>
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary px-4 mx-auto mb-4">Join Now</a>
+                        <a href="auth.html" class="btn btn-primary px-4 mx-auto mb-4">Join Now</a>
                     </div>
                 </div>
                 <div class="col-lg-4 mb-5">
@@ -1359,10 +1361,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-6 py-1 text-right border-right"><strong>Tution Fee</strong></div>
-                                <div class="col-6 py-1">$290 / Month</div>
+                                <div class="col-6 py-1">₹1800 / Month</div>
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary px-4 mx-auto mb-4">Join Now</a>
+                        <a href="auth.html" class="btn btn-primary px-4 mx-auto mb-4">Join Now</a>
                     </div>
                 </div>
                 <div class="col-lg-4 mb-5">
@@ -1387,10 +1389,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-6 py-1 text-right border-right"><strong>Tution Fee</strong></div>
-                                <div class="col-6 py-1">$290 / Month</div>
+                                <div class="col-6 py-1">₹1800 / Month</div>
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary px-4 mx-auto mb-4">Join Now</a>
+                        <a href="auth.html" class="btn btn-primary px-4 mx-auto mb-4">Join Now</a>
                     </div>
                 </div>
             </div>
@@ -1507,7 +1509,7 @@
                         <div class="card-body bg-light text-center p-4">
                             <h4 class="">Essential Notes</h4>
                             <p>Get access to well-structured notes and study guides designed for a deep understanding of key subjects. Strengthen your concepts and prepare effectively for exams.</p>
-                            <a href="" class="btn btn-primary px-4 mx-auto my-2">Read More</a>
+                            <a href="auth.html" class="btn btn-primary px-4 mx-auto my-2">View Notes</a>
                         </div>
                     </div>
                 </div>
@@ -1518,7 +1520,7 @@
                             <h4 class="">Sample Papers</h4>
                         
                             <p>Improve your problem-solving skills with curated practice papers and mock tests. Enhance your exam preparation and boost confidence with real-time assessments.</p>
-                            <a href="" class="btn btn-primary px-4 mx-auto my-2">Read More</a>
+                            <a href="auth.html" class="btn btn-primary px-4 mx-auto my-2">View Papers</a>
                         </div>
                     </div>
                 </div>
@@ -1529,7 +1531,7 @@
                             <h4 class="">Video Lectures</h4>
                            
                             <p>Youtube Video here</p>
-                            <a href="" class="btn btn-primary px-4 mx-auto my-2">Read More</a>
+                            <a href="auth.html" class="btn btn-primary px-4 mx-auto my-2">View Lectures</a>
                         </div>
                     </div>
                 </div>
@@ -1625,6 +1627,81 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyARe1dyFVhMkf5V3DlKI2t3ksl7GFeZXZQ",
+            authDomain: "elearning-33716.firebaseapp.com",
+            databaseURL: "https://elearning-33716-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "elearning-33716",
+            storageBucket: "elearning-33716.firebasestorage.app",
+            messagingSenderId: "1032179731946",
+            appId: "1:1032179731946:web:e26242f924fbe7cca0b693"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // Newsletter form handling
+        const newsletterForm = document.querySelector('#contactus form');
+        const successMessage = document.createElement('div');
+        successMessage.className = 'alert alert-success mt-3';
+        successMessage.style.display = 'none';
+        successMessage.textContent = "Thank you for subscribing! We'll keep you updated.";
+        newsletterForm.parentNode.insertBefore(successMessage, newsletterForm.nextSibling);
+
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nameInput = this.querySelector('input[type="text"]');
+            const emailInput = this.querySelector('input[type="email"]');
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+
+            // Validation
+            if (!name || !email) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            // Save to Firebase
+            const subscribersRef = ref(database, 'subscribers');
+            push(subscribersRef, {
+                name: name,
+                email: email,
+                timestamp: new Date().toISOString()
+            })
+            .then(() => {
+                // Show success message
+                successMessage.style.display = 'block';
+                
+                // Clear form
+                nameInput.value = '';
+                emailInput.value = '';
+                
+                // Hide success message after 3 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
+            })
+            .catch((error) => {
+                console.error('Error saving subscriber:', error);
+                alert('An error occurred. Please try again later.');
+            });
+        });
+    </script>
     <script>
         // Update scroll behavior and active link management
         document.addEventListener('DOMContentLoaded', function() {
@@ -1661,7 +1738,7 @@
             // Handle navigation clicks
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
-                e.preventDefault();
+                    e.preventDefault();
                     const targetId = this.getAttribute('href').substring(1);
                     const targetSection = document.getElementById(targetId);
                     if (targetSection) {
@@ -1742,7 +1819,6 @@
             element.classList.add('animate-on-scroll');
         });
     </script>
-        
 </body>
 
 </html>

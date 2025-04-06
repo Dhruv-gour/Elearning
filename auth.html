@@ -85,6 +85,29 @@
             padding: 30px;
             text-align: center;
             color: white;
+            position: relative;
+        }
+
+        .close-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .close-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
         }
 
         .auth-header img {
@@ -95,6 +118,9 @@
         .auth-header h3 {
             color: #ff8c00;
             font-weight: bold;
+            font-family: 'Handlee', cursive;
+            font-size: 1.8rem;
+            margin-top: 10px;
         }
 
         .auth-body {
@@ -268,6 +294,9 @@
                         <div class="auth-header">
                             <img src="img/logo.png" alt="Chaturvedi Classes">
                             <h3 class="mb-0">Welcome to Chaturvedi Classes</h3>
+                            <div class="close-icon" id="closeAuth">
+                                <i class="fas fa-times"></i>
+                            </div>
                         </div>
                         <div class="auth-body">
                             <!-- Login Form -->
@@ -499,7 +528,7 @@
                             error.textContent = 'User already registered. Please login.';
                             error.style.display = 'block';
                             loading.style.display = 'none';
-                            return;
+                            return Promise.reject('User already exists');
                         }
                     }
 
@@ -529,6 +558,10 @@
                     }, 1500);
                 })
                 .catch((error) => {
+                    if (error === 'User already exists') {
+                        // This error is already handled above
+                        return;
+                    }
                     console.error('Error storing user data:', error);
                     error.textContent = 'Error storing user data. Please try again.';
                     error.style.display = 'block';
@@ -596,6 +629,11 @@
                 icon.classList.remove('fa-eye-slash');
                 icon.classList.add('fa-eye');
             }
+        });
+
+        // Close icon functionality
+        document.getElementById('closeAuth').addEventListener('click', function() {
+            window.location.href = 'index.html';
         });
     </script>
 </body>
