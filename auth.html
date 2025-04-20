@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Login/Register - Chaturvedi Classes</title>
+    <title>Login - Chaturvedi Classes</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Chaturvedi Classes" name="keywords">
     <meta content="Chaturvedi Classes" name="description">
@@ -14,7 +14,8 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet">
-
+    
+    
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
@@ -117,10 +118,11 @@
 
         .auth-header h3 {
             color: #ff8c00;
-            font-weight: bold;
+            font-weight: 900; /* Makes font thicker */
             font-family: 'Handlee', cursive;
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-top: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Adds subtle shadow */
         }
 
         .auth-body {
@@ -450,10 +452,22 @@
                         if (user) {
                             // User found, login successful
                             console.log('Login successful:', user);
+                            // Find the userId for this user
+                            const userId = Object.keys(users).find(key => users[key].email === user.email);
+                            console.log('Found userId:', userId);
+                            
+                            // Save user data in localStorage
+                            localStorage.setItem('userEmail', user.email);
+                            localStorage.setItem('userUID', userId);
+                            console.log('Saved to localStorage:', {
+                                email: user.email,
+                                uid: userId
+                            });
+                            
                             success.textContent = 'Login successful! Redirecting...';
                             success.style.display = 'block';
                             setTimeout(() => {
-                                window.location.href = 'index.html';
+                                window.location.href = 'dashboard.html';
                             }, 1500);
                         } else {
                             // User not found or wrong credentials
@@ -547,15 +561,26 @@
                     console.log('Attempting to store user data:', userData);
                     const userRef = ref(database, 'users/' + userId);
                     
-                    return set(userRef, userData);
+                    return set(userRef, userData)
+                        .then(() => {
+                            // Save user data in localStorage immediately after successful registration
+                            localStorage.setItem('userEmail', email);
+                            localStorage.setItem('userUID', userId);
+                            console.log('Saved to localStorage:', {
+                                email: email,
+                                uid: userId
+                            });
+                            
+                            success.textContent = 'Registration successful! Redirecting...';
+                            success.style.display = 'block';
+                            // Add a small delay to ensure localStorage is updated
+                            setTimeout(() => {
+                                window.location.href = 'dashboard.html';
+                            }, 1500);
+                        });
                 })
                 .then(() => {
                     console.log('User data stored successfully');
-                    success.textContent = 'Registration successful! Redirecting...';
-                    success.style.display = 'block';
-                    setTimeout(() => {
-                        window.location.href = 'index.html';
-                    }, 1500);
                 })
                 .catch((error) => {
                     if (error === 'User already exists') {
