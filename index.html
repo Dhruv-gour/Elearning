@@ -274,124 +274,85 @@
 
         /* --- App Section --- */
         .app-showcase {
-            background: linear-gradient(135deg, #1a0000 0%, #4a0000 100%);
-            border-radius: 60px;
-            padding: 100px 60px;
+            border-radius: 35px;
             color: white;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 204, 0, 0.1);
+            box-shadow: 0 30px 70px rgba(139, 0, 0, 0.25);
+            border: none;
+            background: #ffffff;
+            max-width: 950px;
+            margin: 0 auto;
         }
 
-        .app-showcase h2 {
-            color: #ffffff;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        .app-showcase-bg {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        .app-showcase h2 span {
-            color: var(--secondary);
-            background: linear-gradient(90deg, var(--secondary), #fff);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .app-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 25px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .app-overlay * {
+            pointer-events: auto;
+        }
+
+
+        @media (max-width: 768px) {
+            .app-overlay {
+                padding: 15px;
+                justify-content: flex-end;
+            }
+
+            .app-showcase {
+                border-radius: 30px;
+            }
+
+            .ai-badge {
+                font-size: 0.6rem;
+                padding: 3px 10px;
+                margin-bottom: 10px;
+            }
+
+            .download-btn-modern img {
+                height: 32px !important;
+            }
         }
 
         .ai-badge {
             background: linear-gradient(45deg, #ffcc00, #ffffff);
             color: #4a0000;
-            padding: 5px 15px;
+            padding: 4px 12px;
             border-radius: 50px;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             font-weight: 800;
             display: inline-flex;
             align-items: center;
             gap: 5px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
             margin-bottom: 20px;
         }
 
-        .ai-glow {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255, 204, 0, 0.15) 0%, transparent 70%);
-            top: 20%;
-            right: 10%;
-            pointer-events: none;
-            z-index: 0;
-        }
 
-        .feature-list-app {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 40px;
-        }
 
-        .feature-list-app li {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
 
-        .feature-list-app li i {
-            color: var(--secondary);
-            margin-right: 15px;
-            font-size: 1.2rem;
-        }
 
-        .phone-mockup {
-            width: 300px;
-            height: 600px;
-            background: #1a1a1a;
-            border-radius: 40px;
-            border: 12px solid #333;
-            position: relative;
-            margin: auto;
-            overflow: hidden;
-            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5);
-        }
 
-        .phone-mockup::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 30px;
-            background: #333;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            z-index: 2;
-        }
 
-        .phone-content-dummy {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, #fffdf5, #f0e0b0);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            color: var(--primary);
-        }
 
-        .phone-content-dummy i {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            opacity: 0.8;
-        }
-
-        .phone-content-dummy p {
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
 
         /* --- Footer --- */
         footer {
@@ -526,7 +487,8 @@
                 <a href="#app" class="nav-item nav-link font-weight-bold mx-2">Mobile App</a>
                 <a href="privacy.html" class="nav-item nav-link font-weight-bold mx-2">Privacy</a>
             </div>
-            <a href="#app" class="btn btn-maroon d-none d-lg-block">Get Started</a>
+            <a href="https://play.google.com/store/apps/details?id=com.dhruv.chaturvediclasses" target="_blank"
+                class="btn btn-maroon d-none d-lg-block">Get Started</a>
         </div>
     </nav>
     <!-- Navbar End -->
@@ -537,11 +499,12 @@
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <div class="hero-badge">🎓 Accredited Academic Excellence</div>
-                    <h1 class="hero-title">Shaping <span>Foundations</span>, Reaching Heights.</h1>
+                    <h1 class="hero-title">Your <span>Dreams</span>, Our Inspiration.</h1>
                     <p class="lead mb-5 text-muted pr-lg-5">Expert coaching for Class 1 to 12. We blend traditional
                         teaching mastery with modern interactive tools to ensure your child's academic success.</p>
                     <div class="d-flex btn-group">
-                        <a href="#app" class="btn btn-gold mr-3">Download Class App</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.dhruv.chaturvediclasses"
+                            target="_blank" class="btn btn-gold mr-3">Download Class App</a>
                         <a href="#about" class="btn btn-maroon">Explore Methodology</a>
                     </div>
                     <div class="mt-5 d-flex align-items-center">
@@ -712,39 +675,26 @@
     <!-- App Showcase -->
     <section id="app" class="py-5">
         <div class="container">
+            <div class="text-center d-md-none mb-2">
+                <div class="ai-badge">
+                    <i class="fa fa-sparkles"></i> AI Powered Learning
+                </div>
+            </div>
             <div class="app-showcase">
-                <div class="ai-glow"></div>
-                <div class="row align-items-center px-4 position-relative" style="z-index: 1;">
-                    <div class="col-lg-6">
+                <img src="img/appbanner.png" alt="Chaturvedi Classes App" class="app-showcase-bg">
+                <img src="img/logo.png" alt="Logo"
+                    style="position: absolute; top: 2.5%; left: 22.8%; height: 13.5%; z-index: 2; pointer-events: none;">
+                <div class="app-overlay">
+                    <div class="d-none d-md-flex align-items-start">
                         <div class="ai-badge">
-                            <i class="fa fa-sparkles"></i> AI Powered
-                        </div>
-                        <h2 class="display-3 mb-4 font-weight-bold">Learning on the <span>Move</span>.</h2>
-                        <p class="lead mb-4 text-white-50">Experience the future of education with our AI-integrated
-                            learning ecosystem.</p>
-
-                        <ul class="feature-list-app">
-                            <li><i class="fa fa-brain"></i> AI Powered Study & Doubt Solver</li>
-                            <li><i class="fa fa-rocket"></i> Smart Exam Insights</li>
-                            <li><i class="fa fa-play-circle"></i> Adaptive Video Lectures</li>
-                            <li><i class="fa fa-file-invoice"></i> Premium Study Materials</li>
-                        </ul>
-
-                        <div class="d-flex align-items-center flex-wrap">
-                            <a href="#" class="download-btn-modern">
-                                <img src="img/googleplay.png" alt="Get it on Google Play" height="60">
-                            </a>
+                            <i class="fa fa-sparkles"></i> AI Powered Learning
                         </div>
                     </div>
-                    <div class="col-lg-6 mt-5 mt-lg-0">
-                        <div class="phone-mockup">
-                            <div class="phone-content-dummy">
-                                <img src="img/logo.png" alt="Logo" width="80" class="mb-4">
-                                <i class="fa fa-mobile-alt"></i>
-                                <p>App Screen<br>Placeholder</p>
-                                <small style="color: #666;">Upload your screenshot here</small>
-                            </div>
-                        </div>
+                    <div>
+                        <a href="https://play.google.com/store/apps/details?id=com.dhruv.chaturvediclasses"
+                            target="_blank" class="download-btn-modern">
+                            <img src="img/googleplay.png" alt="Get it on Google Play" height="45">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -772,7 +722,8 @@
                         <a href="https://www.youtube.com/@chaturvedi_coaching.classes" target="_blank"
                             class="social-link"><i class="fab fa-youtube"></i></a>
                     </div>
-                    <a href="#" class="d-inline-block">
+                    <a href="https://play.google.com/store/apps/details?id=com.dhruv.chaturvediclasses" target="_blank"
+                        class="d-inline-block">
                         <img src="img/googleplay.png" alt="Get it on Google Play" height="50"
                             style="opacity: 0.9; transition: 0.3s; filter: drop-shadow(0 10px 20px rgba(255,204,0,0.2));">
                     </a>
@@ -789,9 +740,9 @@
                 <div class="col-lg-2 mb-5 col-6">
                     <h5>Support</h5>
                     <div class="d-flex flex-column">
-                        <a href="#" class="footer-link">Help Center</a>
-                        <a href="#" class="footer-link">Contact Us</a>
-                        <a href="#" class="footer-link">FAQs</a>
+                        <a href="mailto:dhruvgour97@gmail.com" class="footer-link">Help Center</a>
+                        <a href="tel:+918795439696" class="footer-link">Contact Us</a>
+                        <a href="delete-account.html" class="footer-link">Delete Account</a>
                     </div>
                 </div>
                 <div class="col-lg-4 mb-5">
@@ -804,7 +755,8 @@
                     </div>
                     <div class="contact-item">
                         <i class="fa fa-phone-alt"></i>
-                        <p class="m-0">+91 8795439696</p>
+                        <p class="m-0"><a href="tel:+918795439696" style="color: inherit; text-decoration: none;">+91
+                                8795439696</a></p>
                     </div>
                     <div class="contact-item">
                         <i class="fa fa-envelope"></i>
